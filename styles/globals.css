@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --glass-bg: rgba(255,255,255,0.03);
+  --glass-border: rgba(255,255,255,0.07);
+}
+
+html,body,#__next{height:100%}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(6,30,60,0.45), transparent), linear-gradient(180deg,#071027 0%, #021027 100%);
+  color: #e6eef8;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border-radius: 16px;
+}
+
+.pressable { transition: transform .12s cubic-bezier(.2,.8,.2,1), box-shadow .12s; }
+.pressable:active { transform: scale(0.987); }
+
+/* Chat UI */
+.chat-container { max-width: 1050px; margin: 36px auto; padding: 20px; }
+.messages { display:flex; flex-direction:column; gap:12px; padding: 12px; }
+.msg { max-width: 78%; padding: 12px 14px; border-radius: 12px; line-height:1.4; box-shadow: 0 1px 0 rgba(255,255,255,0.02) inset; }
+.msg.user { align-self:flex-end; background: linear-gradient(90deg,#06b6d4,#0ea5a4); color:#042426; font-weight:600; }
+.msg.bot { align-self:flex-start; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); color:#dfeeff; border:1px solid rgba(255,255,255,0.03); }
+
+.composer { display:flex; gap:8px; align-items:center; padding:12px; border-top:1px solid rgba(255,255,255,0.02); }
+.input { flex:1; min-height:44px; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); background:transparent; color:inherit; }
+.btn { padding:10px 14px; border-radius:10px; cursor:pointer; }
